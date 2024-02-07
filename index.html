@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+        .image{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .textcolor{
+            font-size: 27px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+        }
+        .no{
+            position: absolute;
+        }
+        *{
+  box-sizing:border-box;
+}
+html{
+  font-family:'verdana';
+}
+body{
+  margin:0;
+  display:grid;
+  place-items:center;
+  
+}
+.check{
+    display: none;
+}
+.relative{
+  position:relative;
+  border:none;
+  top: 350px;
+  padding: 0.5rem 1rem;
+  border-radius:2.5rem;
+  height:5rem;
+  width:5rem;
+  color:white;
+  display:grid;
+  place-items:center;
+}
+
+.absolute{
+  position:absolute;
+  left:0;
+  top:0;
+  HEIGHT:100%;
+  WIDTH:100%;
+  border-radius:2.5rem;
+}
+
+.aura1{
+  box-shadow:0px 0px 10px 0px red;
+   animation:escalar 2.75s infinite linear;
+}
+
+.aura2{
+  box-shadow:0px 0px 10px 0px ORANGE;
+   animation:escalar 1.75s infinite linear;
+}
+
+.aura3{
+  box-shadow:0px 0px 10px 0px WHITE;
+   animation:escalar 1.25s infinite linear;
+}
+
+.aura4{
+  box-shadow:0px 0px 10px 0px yellow;
+  animation:escalar 1s infinite linear;
+}
+
+
+.corazon{
+  font-size:2rem;
+  animation:latido 1s infinite linear;
+}
+
+@keyframes escalar{
+  0% {
+    
+  }
+  100%{
+    transform: scale(10);
+    opacity:0;
+  }
+  
+}
+
+@keyframes latido {
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1.5 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1.5 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+}
+
+
+
+
+    </style>
+    </head>
+    <body>
+        <div class="check">
+            <div class='relative'>
+                <div class='corazon'>❤️</div>
+                <div class='absolute aura1'></div>
+                <div class='absolute aura2'></div>
+                <div class='absolute aura3'></div>
+                <div class='absolute aura4'></div>
+            </div>
+        </div>
+        <div class="image">
+            <img
+                src="https://ih1.redbubble.net/image.2030763579.9081/st,small,507x507-pad,600x600,f8f8f8.jpg"
+                width="300">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <span class="textcolor" id="textc"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-6 d-flex justify-content-center">
+                    <button class="no btn btn-danger" id="no">Không</button>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <button class="btn btn-success" id="yes">Có</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var btnno = document.getElementById("no");
+        var btnyes = document.getElementById("yes");
+
+        var chu = ["Em không yêu anh hả :(",
+         "Em không yêu anh thiệt lun hả",
+          "Sao vậy em yêu nút có bên kìa mà",
+          "Em hết thương anh rồi hả",
+        "Anh bùn quá em hết yêu anh rồi",
+        "Em làm sao vậy múi hết yêu a rồi hỏ",
+        "Bên kia kìa nút có bên kìa mà"
+
+    ]
+        btnno.addEventListener("click", function(){
+            var x = window.innerWidth - btnno.offsetWidth;
+            var y = window.innerHeight - btnno.offsetHeight;
+
+            var newx = Math.floor(Math.random() * x);
+            var newy = Math.floor(Math.random() * y);
+
+            btnno.style.left = newx + "px";
+            btnno.style.top = newy + "px";
+            var randomindex = Math.floor(Math.random() * chu.length);
+            textc.innerHTML = chu[randomindex];
+
+        })
+        var textc = document.getElementById("textc");
+        textc.innerHTML = "Em có yêu anh khum Múi";
+        btnyes.addEventListener("click", function(){
+            textc.innerHTML = "Anh biết ngay là em yêu anh mà love you múi kèn cha ná!"
+            textc.style.fontSize = "30px";
+            textc.style.color = "red";
+            var check = document.querySelector(".check");
+            check.style.display = "block";
+        })
+    </script>
+</html>
